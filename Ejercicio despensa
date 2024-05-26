@@ -1,0 +1,31 @@
+#Una despensa de barrio vende la leche de vaca entera de litro a 1000 pesos la unidad. 
+#Si el cliente compra más de 12  unidades (y hasta 24 unidades), el costo tiene un descuento del 10%. 
+#Si compra más de 24 unidades, el descuento es del 15%. 
+#Además posee la promoción a los jubilados. La promoción de jubilados es sumarle un 10% de descuento (si posee otros descuentos, se suma los descuentos). 
+#Desarrolle una solución algorítmica para saber cuento debe pagar el cliente.
+
+#definición de variables 
+precio_leche = 1000
+cantidad_compra = int(input("Cantidad de litros de la compra:"))
+jubilado = int(input("Ingrese 1 si es jubilado, 0 si no lo es:"))
+
+#definicion de costos
+costo_compra = precio_leche * cantidad_compra
+costo_desc_10 = costo_compra * 0.9
+costo_desc_15 = costo_compra * 0.85
+
+#condicional si no es jubilado
+if cantidad_compra <= 12 and not jubilado:
+    print("El precio a pagar es:",costo_compra)
+elif ((cantidad_compra > 12 and cantidad_compra <= 24) and not jubilado):
+    print("El precio a pagar es",costo_desc_10)
+elif ((cantidad_compra > 24) and not jubilado):
+    print("El precio a pagar es:",costo_desc_15)
+
+#condicional si es jubilado
+if cantidad_compra <= 12 and jubilado:
+    print("El precio a pagar es:",(costo_compra * 0.9))
+elif ((cantidad_compra > 12 and cantidad_compra <= 24) and jubilado):
+    print("El precio a pagar es",(costo_desc_10 * 0.9))
+elif ((cantidad_compra > 24) and jubilado):
+    print("El precio a pagar es:", costo_desc_15 * 0.9)
